@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Invoice</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 75%; margin: auto">
+    <div>
+        <table style="width: 100%; font-size: 14px;">
+            <tr style="height: 125px;">
+                <td style="vertical-align: middle; padding-right:40px; white-space: pre;">
+                    <span th:text="'Seller:'"></span>
+                    <span th:text="${seller}"></span>
+                    <span th:text="${sellerAddress}"></span>
+                    <span th:text="'GSTIN: ' + ${sellerGstin}"></span>
+                </td>
+                <td style="vertical-align: middle; padding-right:40px; white-space: pre;">
+                    <span th:text="'Buyer:'"></span>
+                    <span th:text="${buyer}"></span>
+                    <span th:text="${buyerAddress}"></span>
+                    <span th:text="'GSTIN: ' + ${buyerGstin}"></span>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div>
+        <table style="width: 100%; font-size: 11px;">
+            <tr>
+                <th style="width: 32.75%">Item</th>
+                <th style="width: 22.75%">Quantity</th>
+                <th style="width: 22.75%">Rate</th>
+                <th style="width: 22.75%">Amount</th>
+            </tr>
+            <tr th:each="item: ${items}">
+                <td style="width: 32.75%" th:text="${item.name}"></td>
+                <td style="width: 22.75%" th:text="${item.quantity}"></td>
+                <td style="width: 22.75%" th:text="${item.rate}"></td>
+                <td style="width: 22.75%" th:text="${item.amount}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
